@@ -9,11 +9,10 @@ class Solution {
         for (int r = 0; r < 9; r++) {
             for (int c = 0; c < 9; c++) {
                 char current = board[r][c];
-                if (current == ".") continue;
+                if (current == '.') continue;            
 
-                int digitIndex = current - 1;
-
-                int boxIndex = (r / 3) * 3 + (c / 3);
+                int digitIndex = current - '1';          
+                int boxIndex  = (r / 3) * 3 + (c / 3);   
 
                 if (rows[r][digitIndex] || cols[c][digitIndex] || boxes[boxIndex][digitIndex]) {
                     return false;
@@ -24,5 +23,6 @@ class Solution {
                 boxes[boxIndex][digitIndex] = true;
             }
         }
-        return true;
+        return true; 
     }
+}
