@@ -1,0 +1,30 @@
+import java.util.HashSet;
+import java.util.Set;
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        boolean[] zeroRows = new boolean[m];
+        boolean[] zeroCols = new boolean[n];
+        
+        // Find all rows and columns that should be zero
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    zeroRows[i] = true;
+                    zeroCols[j] = true;
+                }
+            }
+        }
+        
+        // Set zeros
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (zeroRows[i] || zeroCols[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+}
